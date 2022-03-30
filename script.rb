@@ -5,18 +5,23 @@
              '..---' => '2', '...--' => '3', '....-' => '4', '.....' => '5', '-....' => '6', '--...' => '7',
              '---..' => '8', '----.' => '9', '-----' => '0' }
 
+# method to decode a char
 def decode_char(string)
   @decoder_letters.fetch(string)
 end
 
 puts decode_char('.-')
 
+# Method to decode a word
 def decode_word(string)
+  output = ''
   string
     .split
     .each do |i|
-    return [decode_char(i)]
+      output += decode_char(i)
   end
+  return output
+
 end
 
 puts decode_word('-- -.--')
