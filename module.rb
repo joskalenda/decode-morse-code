@@ -11,3 +11,9 @@ module MyEnumerable
     compute
   end
 
+  def filter(&block)
+    compute = []
+    each { |i| compute.push(i) if block.yield(i) }
+    compute
+  end
+end
